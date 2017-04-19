@@ -38,3 +38,8 @@ background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, F
 padding-top:50px;
 padding-bottom:100px;
 }
+
+ .navbar-brand:hover{
+    color:gray;
+    opacity:.75;
+}
