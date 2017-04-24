@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Saasapp</title>
+    <title>Devmatch</title>
     <%= csrf_meta_tags %>
+<!-- import google fonts-->    
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -10,37 +11,38 @@
 
   <body>
     
- <nav class="navbar navbar-default navbar-static-top" role="navigation">
-  <div class='container'>
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-<!-- embedded ruby for logo/home page-->
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <i class="fa fa-group"></i> Devmatch
-      <% end %>
-      
-    </div>
-    
-    <div class="collapse navbar-collapse" id="main-nav-collapse">
-      <ul class="nav navbar-nav navbar-right">
-      
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class='container'>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        
+<!-- embedded ruby for logo page-->
+          <%= link_to root_path, class: "navbar-brand" do %>
+<!-- font awesome usage -->          
+            <i class="fa fa-group"></i> Devmatch
+          <% end %>
+          
+        </div>
+        
+        <div class="collapse navbar-collapse" id="main-nav-collapse">
+          <ul class="nav navbar-nav navbar-right">
+          
 <!-- embedded ruby to go to about page -->
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Contact Us", new_contact_path %></li>
-      </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-  </div>
-</nav>
+            <li><%= link_to "About", about_path %></li>
+            <li><%= link_to "Contact Us", new_contact_path %></li>
+          </ul>
+        </div>
+<!-- .navbar-collapse -->
+      </div>
+    </nav>
     
     
-      <%= yield %>
+    <%= yield %>
     
   </body>
 </html>
