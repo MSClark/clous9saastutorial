@@ -41,13 +41,16 @@
       </div>
     </nav>
     <div class="container">
-      <% flash.each do |type, msg| %> <!-- loop type is the key, msg is the value->
+      <% flash.each do |type, msg| %> <!-- loop, type is the key, msg is the value, line doesnt need = sign because it isnt being injected into html->
         <!-- type refers to danger or success. -->
-        <%= content_tag :div, msg, class: "alert alert-#{type}" %> 
+        <!-- flash keywors refers to a list of key value pairs-->
+        <%= content_tag :div, msg, class: "alert alert-#{type}" %> <!-- #{var} indicates string interpolation-->
+        <!-- content_tag :div is rails making a div -->
+        <!-- = sign is what injects line into document -->
         <!-- string interpolation for type and message; meaning replacing string literal for value as needed, i.e. using a placeholder name-->
         <!-- type changes to danger or success-->
       <% end %>
-      <!-- ^ put here in case redirection link is changed -->
+      <!-- structure ^ put here in case redirection link is changed -->
     </div>
     <%= yield %>
     

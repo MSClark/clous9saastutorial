@@ -1,6 +1,8 @@
 class ContactsController < ApplicationController
   def new
-   @contact = Contact.new
+   @contact = Contact.new 
+   #here rails says go look at the model file because of the capital C in Contact, finds validations in model file and makes note of them 
+   #then goes to 'new' view
   end
   def create
     @contact = Contact.new(contact_params)
