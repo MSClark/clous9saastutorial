@@ -1,0 +1,12 @@
+<!-- File needs to be called contact_email to match function in mailer file -->
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p>
+      Contact form submission from:
+      <%= "#{@name}, #{@email}." %>
+    </p>
+    <p> <%= @body %> </p>
+  </body>
+</html>
