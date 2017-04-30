@@ -7,12 +7,18 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-#bring them back to the blank contact page with message sent or error
-        flash[:success]="Message sent"
-       redirect_to new_contact_path
+      name=params[:contact][:name] #grabs name email and comments from form
+      #params is a hash (key value pair)[] notation grabs what you want
+      #nested hash example- params= {contact:{name:"joe", email:example@aol.com}}
+      email=params[:contact][:email]
+      body=params[:contact][:comments]
+      ContactMailer.contact_email(name, email, body).deliver #sends email
+      #bring them back to the blank contact page with message sent or error
+      flash[:success]="Message sent"
+      edirect_to new_contact_path
     else
        flash[:danger] = @contact.errors.full_messages.join(", ") 
-       #join omits "" and [] and delimits with ' and space
+       #join omits "" and the [] then delimits with ' and space
        redirect_to new_contact_path
     end
   end

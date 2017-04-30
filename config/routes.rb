@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   get 'about', to: 'pages#about'
-  resources :contacts, only: :create
+  resources :contacts, only: :create #create action is a POST http request
   
 # can put [:create, :new] for multiple
 # need to change applitcation layout file to have contact_us_path to work
