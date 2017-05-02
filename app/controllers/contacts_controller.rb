@@ -1,10 +1,12 @@
 class ContactsController < ApplicationController
+  
   def new
    @contact = Contact.new 
    # here rails says go look at the model file because of the capital C in Contact, 
    # finds validations in model file and makes note of them 
    # then goes to 'new' view
   end
+  
   def create
     # mass assignment of form fields into contact object
     @contact = Contact.new(contact_params)
@@ -29,6 +31,7 @@ class ContactsController < ApplicationController
        redirect_to new_contact_path
     end
   end
+  
 # white list's params as a security feature using private keyword in order to mass assign
   private
     def contact_params
