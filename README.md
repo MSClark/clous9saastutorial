@@ -24,3 +24,5 @@ Step 5- Contacts#create action is run in the controller file
 Step 6- Contacts#new action is run
 Step 7- HTTP response is sent 
 Step 8- HTML is rendered by client broswer
+
+- Query string parameter passing information through links; information after a ? mark in the link 
