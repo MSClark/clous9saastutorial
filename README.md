@@ -31,3 +31,4 @@ Step 8- HTML is rendered by client broswer
 To append db need to 
 - run rails g migration name_of_thing
 - add your db change to that file 
+- run rails db:migrate, this makes the change to the db
