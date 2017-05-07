@@ -27,3 +27,7 @@ Step 8- HTML is rendered by client broswer
 
 - Query string parameter passing information through links; information after a ? mark in the link 
 - access any hash with params keyword ex. params[:user] = '2'
+
+To append db need to 
+- run rails g migration name_of_thing
+- add your db change to that file 
