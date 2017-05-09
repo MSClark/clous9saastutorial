@@ -21,11 +21,12 @@
   <div class="field form-group">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
-  </div>
+  </div>av
   
    <div class="field form-group">
     <%= label_tag :card_number, "Credit Card Number" %>
     <%= text_field_tag :card_number, nil, name: nil, class: "form-control" %>
+    // name=nil wont save to rails db, which is what we want for financial fields
   </div>
   
   <div class="field form-group">
