@@ -43,3 +43,4 @@ can use instance vars in view files as long as theyre defined in the controller
 <%= debug(params) if Rails.env.development? %>
 ^debug option :D
 
+
