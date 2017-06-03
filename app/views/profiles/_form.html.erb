@@ -1,4 +1,5 @@
 <%= form_for @profile, url: user_profile_path do |f| %>
+<!-- get user_profile_path from routes list, this is done because each user has a unique profile -->
   <div class="form-group">
     <%= f.label :first_name %>
     <%= f.text_field :first_name, class: 'form-control' %>

@@ -1,3 +1,5 @@
+General notes for the course
+
 http://guides.rubyonrails.org/
 
 Notes for loading contact page: 
