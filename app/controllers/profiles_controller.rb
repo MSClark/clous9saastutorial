@@ -9,17 +9,24 @@ class ProfilesController < ApplicationController
   def create
   # Ensure that we have the user who is filling out form
     @user = User.find( params[:user_id] )
+    #capital U in User refers to model file
   # Create profile linked to this specific user
     @profile = @user.build_profile( profile_params )
+    #build is a rails def, creates association in db... 
+    #...w/ foreign key for you so you dont have to do it manually vs using profile.new
+    #if it profile were plural it would be profiles.build
+    
     if @profile.save
       flash[:success] = "Profile updated!"
-      redirect_to root_path
+      redirect_to root_path #root_path from routes
     else
+#Todo: insert error message here      
       render action: :new
     end
   end
   
 private
+  #whitelisting form params for security
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :job_title, :phone_number, :contact_email, :description)
   end
