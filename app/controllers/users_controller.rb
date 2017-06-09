@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    
+    @users=User.includes(:profile) #includes, sql joins items so there arent as many db queries
   end
   
   # GET to /users/:id
