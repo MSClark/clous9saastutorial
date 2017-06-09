@@ -7,10 +7,8 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "https://js.stripe.com/v2/", type: 'text/javascript' %>
-    <!-- import stripe services library -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
-    <!-- ^ tells stripe the public key, takes STRIPE_PUBLIC_KEY from stripe.rb -->
   </head>
 
   <body>
@@ -34,19 +32,25 @@
         </div>
         
         <div class="collapse navbar-collapse" id="main-nav-collapse">
-          <ul class="nav navbar-nav navbar-right">
           <div class="nav navbar-nav navbar-right">
-            <% if user_signed_in?%>
-              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn"%>
-<!-- for http delete, need "method: :delete" -->              
+            <% if user_signed_in? %>
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn" %>
             <% else %>
               <%= link_to "Log In", new_user_session_path, class: "btn btn-default navbar-btn" %>
               
             <% end %>
           </div>
+          <ul class="nav navbar-nav navbar-right">
+
 <!-- embedded ruby to go to about page -->
+
+            <% if user_signed_in? %>
+              <li><%= link_to "Community", users_path %></li>
+              <li><%= link_to "My Account", edit_user_registration_path %></li>
+            <% end %>
             <li><%= link_to "About", about_path %></li>
             <li><%= link_to "Contact Us", new_contact_path %></li>
+            
           </ul>
         </div>
 <!-- .navbar-collapse -->

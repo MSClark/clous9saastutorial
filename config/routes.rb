@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  devise_for :users, controllers: {registrations: 'users/registrations'}
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+  resources :users do   #explanation on dynamic routes documentation
+    resource :profile
+  end
   get 'about', to: 'pages#about'
-  resources :contacts, only: :create #create action is a POST http request
+  resources :contacts, only: :create
   
 # can put [:create, :new] for multiple
 # need to change applitcation layout file to have contact_us_path to work

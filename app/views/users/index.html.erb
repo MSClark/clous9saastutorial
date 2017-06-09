@@ -1,0 +1,36 @@
+<div class="container">    
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 class="text-center">Devmatch Community</h1>
+      <p class="text-center">Welcome to the Devmatch community, please make a profile so that others can find you in the community</p>
+      <ul class="list-unstyled">
+          <% @users.each do |user| %>
+            <% if user.profile %> </br>
+              <li>
+                <div class="well row <%= cycle('white-bg', '') %> "> <!-- cycle white bg doesnt work -->
+                  <div class="col-sm-4 text-center">
+                    <% if user.profile.avatar %>
+                      <%= link_to user do %>
+                        <%= image_tag user.profile.avatar.url, class: 'user-index-avatar' %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= link_to user do %>
+                      <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
+                    <% end %>
+                    <p>
+                      <%= user.profile.job_title %>
+                      <% if user.plan_id == 2 %> <!-- single user because this is in a loop -->
+                        <span class="label label-danger">PRO</span>
+                      <% end %>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          <% end %> 
+      </ul>
+    </div>    
+  </div>  
+</div>    
