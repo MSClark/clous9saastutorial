@@ -1,4 +1,8 @@
 class ProfilesController < ApplicationController
+  #makes sure user is logged in to view profiles
+  before_action :authenticate_user! #can limit filters ex. only: [:new, edit] right after :authenticate_user!
+  before_action :only_current_user
+  
   # GET to /users/:user_id/profile/new
   def new
     # need to define profile instance var so new.html knows it exists
@@ -46,9 +50,15 @@ class ProfilesController < ApplicationController
       flash[:error]="Error occured, unable to update profile"
     end
   end
+  
 private
   #whitelisting form params for security
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title, :phone_number, :contact_email, :description)
+  end
+  #keep people from performing actions on other profiles
+  def only_current_user
+    @user=User.find(params[:user_id])
+    redirect_to(root_url) unless @user == current_user #current user is from devise
   end
 end
