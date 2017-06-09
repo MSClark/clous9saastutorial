@@ -1,0 +1,2 @@
+fix: Sign up button on sign in screen doesnt carry plan_id through url
+change h1 tag on account page to say account details or something
