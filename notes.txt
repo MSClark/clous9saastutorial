@@ -45,5 +45,11 @@ can use instance vars in view files as long as theyre defined in the controller
 <%= debug(params) if Rails.env.development? %>
 ^debug option :D
 
-User.find searches by id#
+User.find() searches by id# ex. User.find(params[:user_id])
+
+When going to edit progile, rails knows that since it went down edit route it
+use PUT action to update profile; do not need to specify PUT action
+
+
+
 

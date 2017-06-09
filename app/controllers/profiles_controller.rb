@@ -18,18 +18,34 @@ class ProfilesController < ApplicationController
     
     if @profile.save
       flash[:success] = "Profile updated!"
-      redirect_to user_path( params[:user_id] ) #takes id from url
+      redirect_to user_path(params[:user_id]) #takes id from url
     else
 #Todo: insert error message here      
       render action: :new
     end
   end
+  
   #Get to /users/:user_id/profile/edit
   def edit 
     @user=User.find(params[:user_id])
     @profile=@user.profile 
   end
   
+  #PUT to  /users/:user_id/profile
+  def update
+    #retrieve user from db, User.find goes into db
+    @user=User.find(params[:user_id])
+    @profile=@user.profile 
+    #update_attributes is a rails function, profile_params does mass assignment
+    if @profile.update_attributes(profile_params)
+      flash[:success]="Profile Updated"
+      #redirect user to profile page
+      redirect_to user_path(params[:user_id])
+    else 
+      render action :edit
+      flash[:error]="Error occured, unable to update profile"
+    end
+  end
 private
   #whitelisting form params for security
   def profile_params
